@@ -37,9 +37,9 @@ module LogStash::PluginMixins::AwsConfig::V2
   private
   def credentials
     @creds ||= begin
-                if ENV['AWS_ROLE_ARN'] && ENV['AWS_WEB_IDENTITY_TOKEN_FILE']
+                 if ENV['AWS_ROLE_ARN'] && ENV['AWS_WEB_IDENTITY_TOKEN_FILE']
                   assume_role_with_web_identity
-                elsif @access_key_id && @secret_access_key
+                 elsif @access_key_id && @secret_access_key
                    credentials_opts = {
                      :access_key_id => @access_key_id,
                      :secret_access_key => @secret_access_key.value
